@@ -1,4 +1,5 @@
 import { Serie } from '../models/serieModel.js'
+import { serieSchemaZod } from '../validators/seriesValidator.js'
 
 const getAllSeries = async(req, res) =>{
     // console.log('buscando series...')
@@ -44,9 +45,10 @@ const getSeriesByMaxCap = async(req, res) =>{
 }
 
 const saveSerie = async(req, res) =>{
-    const {nombre, cantCapitulos, generos, descripcion} = req.body
     try {
-        const nuevaSerie = new Serie({nombre, descripcion, generos, cantCapitulos})
+        const serieValidada = serieSchemaZod.parse(req.body)
+        const nuevaSerie = new Serie(serieValidada)
+
         await nuevaSerie.save()
 
         res.status(200).json(nuevaSerie)
@@ -57,12 +59,9 @@ const saveSerie = async(req, res) =>{
 
 const updateSerie = async(req, res) =>{
     const {nombre}  = req.body
-    const serie = req.body
-
-    console.log(serie)
-
     try {
-        const serieActualizada = await Serie.findOneAndUpdate({nombre}, serie, {new:true})
+        const serieValidada = serieSchemaZod.parse(req.body)
+        const serieActualizada = await Serie.findOneAndUpdate({nombre}, serieValidada, {new:true})
 
         if(!serieActualizada)
             return res.status(400).json({error: 'no se encuentro la serie con nombre: ' + nobmre})
