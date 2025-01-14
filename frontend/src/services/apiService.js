@@ -27,4 +27,17 @@ const getFavoritos = async() =>{
         
 }
 
-export {getAllSeries ,getFavoritos, login}
+const agregarFavorito = async(idSerie) =>{
+    const usuarioStorage = localStorage.getItem("usuario");
+    const item =  usuarioStorage ? JSON.parse(usuarioStorage) : null;
+    await axios.post(
+        `${API_USUARIO}/agregarfavorito`, 
+        {favorito:idSerie, email:item.usuario.email},
+        {headers:{
+            'Authorization': `Bearer ${item.token}`
+        }}
+    )
+    return
+}
+
+export {getAllSeries ,getFavoritos, login, agregarFavorito}

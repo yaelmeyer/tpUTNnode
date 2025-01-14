@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { getAllSeries } from "../services/apiService";
+import { agregarFavorito, getAllSeries } from "../services/apiService";
 import { SerieCard } from '../components/SeriesCard'
 import Layout from "../components/Layout"
 
@@ -15,6 +15,10 @@ const inicializarSeries = async() =>{
     setSeries(series)
 }
 
+const agregar = async(idSerie)=>{
+    await agregarFavorito(idSerie)
+}
+
   return (
     <Layout>
         <section className="section">
@@ -22,7 +26,7 @@ const inicializarSeries = async() =>{
             {series.map((serie) => (
                 <div key={serie.nombre}>
                     <SerieCard serie={serie}/>
-                    <button>Agregar a Favoritos</button>
+                    <button onClick={()=>agregar(serie._id)}>Agregar a Favoritos</button>
                 </div>
             ))}
             </div>
