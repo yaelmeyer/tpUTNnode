@@ -8,7 +8,7 @@ serieRouter.get('/', getAllSeries)
 
 serieRouter.post('/favoritos', authValidator, obtenerSeriesPorIds)
 
-serieRouter.post('/promedioCapitulosFavoritos', promedioCapsFavoritos)
+serieRouter.post('/promedioCapitulosFavoritos', authValidator, promedioCapsFavoritos)
 
 serieRouter.get('/byNombre', getSeriesByNombre)
 
