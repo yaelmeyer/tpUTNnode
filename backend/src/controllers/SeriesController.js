@@ -1,5 +1,6 @@
 import { Serie } from '../models/serieModel.js'
 import { serieSchemaZod } from '../validators/seriesValidator.js'
+import {mongoose} from 'mongoose'
 
 const getAllSeries = async(req, res) =>{
     // console.log('buscando series...')
@@ -9,6 +10,20 @@ const getAllSeries = async(req, res) =>{
         res.status(200).json(series)
     } catch (error) {
         res.status(500).json({message: 'error al obtener las series: ', error: error.message})
+    }
+}
+
+async function obtenerSeriesPorIds(req, res) {
+    try {
+        // Convertir los IDs a ObjectId
+        // console.log(req.body.ids)
+        const ids = req.body.ids.map(id => new mongoose.Types.ObjectId(id));
+        // console.log(ids)
+        const series = await Serie.find({ _id: { $in: ids } });
+        res.status(200).json(series)
+    } catch (error) {
+        console.error('Error al obtener series:', error);
+        res.status(500).json({message: 'error al obtener favoritos: ', error: error.message})
     }
 }
 
@@ -87,4 +102,4 @@ const deleteSerie = async(req, res) =>{
     }
 }
 
-export {getAllSeries, getSeriesByNombre, getSeriesByMinCap, getSeriesByMaxCap, saveSerie, updateSerie, deleteSerie}
+export {getAllSeries, obtenerSeriesPorIds, getSeriesByNombre, getSeriesByMinCap, getSeriesByMaxCap, saveSerie, updateSerie, deleteSerie}

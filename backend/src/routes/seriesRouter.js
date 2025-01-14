@@ -1,9 +1,11 @@
 import { Router } from 'express'
-import { deleteSerie, getAllSeries, getSeriesByMaxCap, getSeriesByMinCap, getSeriesByNombre, saveSerie, updateSerie } from '../controllers/SeriesController.js'
+import { deleteSerie, getAllSeries, getSeriesByMaxCap, getSeriesByMinCap, getSeriesByNombre, obtenerSeriesPorIds, saveSerie, updateSerie } from '../controllers/SeriesController.js'
 
 const serieRouter = Router()
 
 serieRouter.get('/', getAllSeries)
+
+serieRouter.get('/favoritos', obtenerSeriesPorIds)
 
 serieRouter.get('/byNombre', getSeriesByNombre)
 
