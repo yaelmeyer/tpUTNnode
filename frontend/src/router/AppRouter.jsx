@@ -18,9 +18,9 @@ const AppRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
-        <Route path="/" element={isAuthenticated ?<Home /> : <Navigate to="login"/>} />
-        <Route path="/series" element={isAuthenticated ?<Series /> : <Navigate to="login"/>} />
-        <Route path="/favoritos" element={isAuthenticated ?<Favoritos /> : <Navigate to="login"/>} />
+        <Route path="/" element={isAuthenticated ?<Home /> : <Navigate to="/login"/>} />
+        <Route path="/series" element={isAuthenticated ?<Series /> : <Navigate to="/login"/>} />
+        <Route path="/favoritos" element={isAuthenticated ?<Favoritos /> : <Navigate to="/login"/>} />
       </Routes>
     </BrowserRouter>
   )
