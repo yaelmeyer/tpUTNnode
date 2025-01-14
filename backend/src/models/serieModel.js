@@ -18,6 +18,10 @@ const SerieSchema = new mongoose.Schema({
     cantCapitulos:{
         type: Number,
         required: true
+    },
+    urlImagen:{
+        type: String,
+        required: false
     }
 
 })
