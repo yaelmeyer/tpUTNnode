@@ -17,7 +17,7 @@ const usuarioSchema = new mongoose.Schema({
         required: true,
     },
     favoritos:{
-        typs: [{type: mongoose.Schema.Types.ObjectId, ref: 'Serie'}]
+        type: [{type: mongoose.Schema.Types.ObjectId, ref: 'Serie'}]
     },
     tipo:{
      type: String,

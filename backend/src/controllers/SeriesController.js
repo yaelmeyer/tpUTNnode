@@ -1,6 +1,6 @@
 import { Serie } from '../models/serieModel.js'
 import { serieSchemaZod } from '../validators/seriesValidator.js'
-import {mongoose} from 'mongoose'
+import { mongoose } from 'mongoose'
 
 const getAllSeries = async(req, res) =>{
     // console.log('buscando series...')
