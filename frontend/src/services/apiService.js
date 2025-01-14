@@ -40,4 +40,16 @@ const agregarFavorito = async(idSerie) =>{
     return
 }
 
-export {getAllSeries ,getFavoritos, login, agregarFavorito}
+const verificarLogin = async() => {
+    const usuarioStorage = localStorage.getItem("usuario");
+    const item =  usuarioStorage ? JSON.parse(usuarioStorage) : null;
+    const response = await axios.get(`${API_USUARIO}/check-login`, 
+        {headers:{
+            'Authorization': `Bearer ${item.token}`
+        }})
+    
+    console.log('check: '+ response.data)
+    return check
+}
+
+export {getAllSeries ,getFavoritos, login, agregarFavorito, verificarLogin}

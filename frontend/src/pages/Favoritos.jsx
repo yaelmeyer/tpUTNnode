@@ -8,7 +8,7 @@ const Favoritos = ({ onSelectFavorite }) => {
 
   useEffect(() => {
       inicializarSeries()
-  }, []);
+  }, [series]);
 
 const inicializarSeries = async() =>{
     const series = await getFavoritos()
