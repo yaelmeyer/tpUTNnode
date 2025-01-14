@@ -13,13 +13,15 @@ const getAllSeries = async(req, res) =>{
     }
 }
 
-async function obtenerSeriesPorIds(req, res) {
+const obtenerSeriesPorIds = async(req, res) => {
     try {
         // Convertir los IDs a ObjectId
         // console.log(req.body.ids)
+        // console.log(req.body)
         const ids = req.body.ids.map(id => new mongoose.Types.ObjectId(id));
         // console.log(ids)
         const series = await Serie.find({ _id: { $in: ids } });
+        // console.log('favoritos encontrados: '+ series)
         res.status(200).json(series)
     } catch (error) {
         console.error('Error al obtener series:', error);

@@ -31,7 +31,7 @@ const loginUsuario = async(req, res) =>{
 
         const token = jwt.sign(payload, JWT_SECRET, { expiresIn: "1h" })
 
-        res.json({ usuario: { _id: usuario._id, name: usuario.name, email }, token })        
+        res.json({ usuario, token })        
     } catch (error) {
         console.log('ERROR en login: ' + error.message)
         return res.status(500).json({message: 'ERROR al loguearse'})
