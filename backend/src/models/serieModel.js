@@ -4,7 +4,8 @@ const SerieSchema = new mongoose.Schema({
     nombre:{
         type: String,
         required: true,
-        trim: true,
+        unique: true,
+        trim: true
     },
     descripcion:{
         type: String,
