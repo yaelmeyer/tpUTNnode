@@ -3,6 +3,7 @@ import {connectDB} from './config/mongoConnection.js'
 import cors from 'cors'
 
 import {serieRouter} from "./routes/seriesRouter.js"
+import { usuarioRouter } from "./routes/usuarioRoute.js"
 
 process.loadEnvFile()
 
@@ -16,6 +17,7 @@ app.use(cors())
 
 //series
 app.use('/api/series', serieRouter)
+app.use('/api/usuario', usuarioRouter)
 
 app.use("*", (req, res) => {
     res.status(404).json({ error: "resource not found" })
