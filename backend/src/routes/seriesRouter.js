@@ -1,11 +1,13 @@
 import { Router } from 'express'
-import { deleteSerie, getAllSeries, getSeriesByMaxCap, getSeriesByMinCap, getSeriesByNombre, obtenerSeriesPorIds, saveSerie, updateSerie } from '../controllers/SeriesController.js'
+import { deleteSerie, getAllSeries, getSeriesByMaxCap, getSeriesByMinCap, getSeriesByNombre, obtenerSeriesPorIds, promedioCapsFavoritos, saveSerie, updateSerie } from '../controllers/SeriesController.js'
 
 const serieRouter = Router()
 
 serieRouter.get('/', getAllSeries)
 
 serieRouter.post('/favoritos', obtenerSeriesPorIds)
+
+serieRouter.post('/promedioCapitulosFavoritos', promedioCapsFavoritos)
 
 serieRouter.get('/byNombre', getSeriesByNombre)
 
