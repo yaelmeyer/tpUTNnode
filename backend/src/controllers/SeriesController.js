@@ -78,7 +78,7 @@ const saveSerie = async(req, res) =>{
 const updateSerie = async(req, res) =>{
     const {nombre}  = req.body
     try {
-        const serieValidada = serieSchemaZod.parse(req.body)
+        const serieValidada = serieSchemaZod.partial().parse(req.body)
         const serieActualizada = await Serie.findOneAndUpdate({nombre}, serieValidada, {new:true})
 
         if(!serieActualizada)
