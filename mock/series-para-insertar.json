@@ -1,0 +1,16 @@
+[
+    {
+        "nombre": "House of Cards",
+        "descripcion": "Un político ambicioso manipula su camino hacia el poder en EE.UU.",
+        "generos": ["Drama", "Política"],
+        "cantCapitulos": 73,
+        "urlImagen": "https://static.tvmaze.com/uploads/images/original_untouched/42/106093.jpg"
+    },
+    {
+        "nombre": "Breaking Bad",
+        "descripcion": "Un profesor de química con cáncer se convierte en fabricante de metanfetaminas.",
+        "generos": ["Drama", "Crimen"],
+        "cantCapitulos": 62,
+        "urlImagen": "https://static.tvmaze.com/uploads/images/original_untouched/0/2400.jpg"
+    }
+]

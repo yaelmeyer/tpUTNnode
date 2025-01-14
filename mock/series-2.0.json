@@ -1,0 +1,65 @@
+[
+    {
+        "nombre": "Stranger Things",
+        "descripcion": "Un grupo de niños descubre secretos sobrenaturales en su ciudad.",
+        "generos": ["Ciencia Ficción", "Terror"],
+        "cantCapitulos": 34,
+        "urlImagen": "https://static.tvmaze.com/uploads/images/original_untouched/200/501942.jpg"
+    },
+    {
+        "nombre": "Sherlock",
+        "descripcion": "Una versión moderna de Sherlock Holmes resolviendo crímenes en Londres.",
+        "generos": ["Misterio", "Crimen"],
+        "cantCapitulos": 13,
+        "urlImagen": "https://static.tvmaze.com/uploads/images/original_untouched/82/206879.jpg"
+    },
+    {
+        "nombre": "The Witcher",
+        "descripcion": "Geralt de Rivia, un cazador de monstruos, busca su destino en un mundo turbulento.",
+        "generos": ["Fantasía", "Acción"],
+        "cantCapitulos": 16,
+        "urlImagen": "https://static.tvmaze.com/uploads/images/original_untouched/231/579928.jpg"
+    },
+    {
+        "nombre": "Game of Thrones",
+        "descripcion": "Nobles familias luchan por el control de los Siete Reinos.",
+        "generos": ["Fantasía", "Drama"],
+        "cantCapitulos": 73,
+        "urlImagen": "https://static.tvmaze.com/uploads/images/original_untouched/190/476117.jpg"
+    },
+    {
+        "nombre": "Narcos",
+        "descripcion": "La historia del auge y caída de los carteles de la droga en Colombia.",
+        "generos": ["Crimen", "Drama"],
+        "cantCapitulos": 30,
+        "urlImagen": "https://static.tvmaze.com/uploads/images/original_untouched/163/407679.jpg"
+    },
+    {
+        "nombre": "Friends",
+        "descripcion": "Seis amigos navegan por la vida y el amor en Nueva York.",
+        "generos": ["Comedia", "Romance"],
+        "cantCapitulos": 236,
+        "urlImagen": "https://static.tvmaze.com/uploads/images/original_untouched/4/11341.jpg"
+    },
+    {
+        "nombre": "The Office",
+        "descripcion": "Un falso documental sobre una oficina y sus empleados extravagantes.",
+        "generos": ["Comedia"],
+        "cantCapitulos": 201,
+        "urlImagen": "https://static.tvmaze.com/uploads/images/original_untouched/85/213184.jpg"
+    },
+    {
+        "nombre": "Black Mirror",
+        "descripcion": "Una serie de antología que explora el lado oscuro de la tecnología.",
+        "generos": ["Ciencia Ficción", "Drama"],
+        "cantCapitulos": 27,
+        "urlImagen": "https://static.tvmaze.com/uploads/images/original_untouched/173/433868.jpg"
+    },
+    {
+        "nombre": "El juego del calamar",
+        "descripcion": "Cientos de jugadores con problemas financieros aceptan una extraña invitación a un juego de supervivencia infantil. Un premio millonario les espera, pero las consecuencias son letales.",
+        "generos": ["Drama", "Suspenso", "Thriller"],
+        "cantCapitulos": 9,
+        "urlImagen": "https://upload.wikimedia.org/wikipedia/en/f/fb/Squid_Game.jpg"
+    }
+]
