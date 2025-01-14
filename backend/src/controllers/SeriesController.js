@@ -13,7 +13,7 @@ const getAllSeries = async(req, res) =>{
     }
 }
 
-async function obtenerSeriesPorIds(req, res) {
+const obtenerSeriesPorIds = async(req, res) => {
     try {
         // Convertir los IDs a ObjectId
         // console.log(req.body.ids)
