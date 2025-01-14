@@ -1,9 +1,10 @@
 import { Router } from 'express'
-import { loginUsuario } from '../controllers/usuarioController.js'
+import { agregarFavorito, loginUsuario } from '../controllers/usuarioController.js'
 import {authValidator} from '../middlewares/authValidator.js'
 
 const usuarioRouter = Router()
 
-usuarioRouter.post('/login', authValidator, loginUsuario)
+usuarioRouter.post('/login', loginUsuario)
+usuarioRouter.post('/agregarfavorito', authValidator, agregarFavorito)
 
 export {usuarioRouter}

@@ -1,5 +1,6 @@
 import { Usuario } from "../models/usuarioModel.js";
 import { usuarioSchemaZod } from "../validators/usuarioValidator.js";
+import { mongoose } from 'mongoose'
 import bcryptjs from "bcryptjs"
 import jwt from "jsonwebtoken"
 
@@ -38,4 +39,27 @@ const loginUsuario = async(req, res) =>{
     }
 }
 
-export {loginUsuario}
+const agregarFavorito = async(req, res) =>{
+    const {favorito, email} = req.body
+
+    try {
+        const usuario = await Usuario.findOne({email})
+        console.log(usuario)
+        const nuevoFavorito = new mongoose.Types.ObjectId(favorito)
+        console.log(usuario.favoritos)
+        console.log(typeof(usuario.favoritos))
+
+        if (Array.isArray(usuario.favoritos)) {
+            console.log('es array')
+        }
+        usuario.favoritos.push(nuevoFavorito)
+
+        await usuario.save()
+
+        res.json({usuarioActualizado: usuario})
+    } catch (error) {
+        res.status(500).json({message: 'error al agregar favorito: ', error: error.message})
+    }
+}
+
+export {loginUsuario, agregarFavorito}
