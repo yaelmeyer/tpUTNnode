@@ -19,9 +19,11 @@ const login = async(email, password) =>{
 }
 
 const getFavoritos = async() =>{
-    const usuario = localStorage.getItem("usuario");
-    const favoritos = await axios.get(`${API_SERIES}/favoritos`,usuario.favoritos)
-    return res.json(favoritos)
+    const usuarioStorage = localStorage.getItem("usuario");
+    const item =  usuarioStorage ? JSON.parse(usuarioStorage) : null;
+    const response = await axios.post(`${API_SERIES}/favoritos`,{ids:item.usuario.favoritos})
+
+    return response.data
         
 }
 
