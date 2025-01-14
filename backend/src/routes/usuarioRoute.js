@@ -4,6 +4,6 @@ import {authValidator} from '../middlewares/authValidator.js'
 
 const usuarioRouter = Router()
 
-usuarioRouter.post('/login', authValidator, loginUsuario)
+usuarioRouter.post('/login', loginUsuario)
 
 export {usuarioRouter}

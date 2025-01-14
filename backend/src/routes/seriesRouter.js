@@ -5,7 +5,7 @@ const serieRouter = Router()
 
 serieRouter.get('/', getAllSeries)
 
-serieRouter.get('/favoritos', obtenerSeriesPorIds)
+serieRouter.post('/favoritos', obtenerSeriesPorIds)
 
 serieRouter.get('/byNombre', getSeriesByNombre)
 
