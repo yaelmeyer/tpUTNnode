@@ -39,6 +39,12 @@ const loginUsuario = async(req, res) =>{
     }
 }
 
+const checkLogin = async(req, res) =>{ 
+    console.log('validando login existente')
+    console.log(req.body.headers)
+    return res.json({ login: true})
+}
+
 const agregarFavorito = async(req, res) =>{
     const {favorito, email} = req.body
 
@@ -62,4 +68,4 @@ const agregarFavorito = async(req, res) =>{
     }
 }
 
-export {loginUsuario, agregarFavorito}
+export {loginUsuario, agregarFavorito, checkLogin}
