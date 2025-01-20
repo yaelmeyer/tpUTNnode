@@ -4,7 +4,7 @@ import {authValidator} from '../middlewares/authValidator.js'
 
 const usuarioRouter = Router()
 
-usuarioRouter.post('/login', loginUsuario)
+usuarioRouter.get('/login', loginUsuario)
 usuarioRouter.post('/agregarfavorito', authValidator, agregarFavorito)
 
 export {usuarioRouter}

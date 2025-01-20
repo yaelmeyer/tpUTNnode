@@ -1,4 +1,5 @@
 import { Serie } from '../models/serieModel.js'
+import { Usuario } from '../models/usuarioModel.js'
 import { serieSchemaZod } from '../validators/seriesValidator.js'
 import { mongoose } from 'mongoose'
 
@@ -77,7 +78,7 @@ const saveSerie = async(req, res) =>{
 const updateSerie = async(req, res) =>{
     const {nombre}  = req.body
     try {
-        const serieValidada = serieSchemaZod.parse(req.body)
+        const serieValidada = serieSchemaZod.partial().parse(req.body)
         const serieActualizada = await Serie.findOneAndUpdate({nombre}, serieValidada, {new:true})
 
         if(!serieActualizada)
@@ -104,4 +105,39 @@ const deleteSerie = async(req, res) =>{
     }
 }
 
-export {getAllSeries, obtenerSeriesPorIds, getSeriesByNombre, getSeriesByMinCap, getSeriesByMaxCap, saveSerie, updateSerie, deleteSerie}
+//funcion con metodo de agregacion
+//para calcular el promedio de capitulos de las series favoritas
+const promedioCapsFavoritos = async(req, res) =>{
+    const {email} = req.body
+
+    const usuario = await Usuario.findOne({email})
+
+    const {favoritos} = usuario
+
+    const ids = favoritos.map(id => new mongoose.Types.ObjectId(id));
+
+    try {
+        const promedio = await Serie.aggregate([
+            {
+                $match:{
+                    _id: {$in: ids}
+                }
+            },
+            {
+              $group: {
+                    _id: null,
+                  promedioCaps: {$avg: "$cantCapitulos"}
+              }
+            },
+              {
+                  $sort: {promedioCaps:1}
+                }
+        ])
+
+        return res.json({promedio: promedio})
+    } catch (error) {
+        res.status(500).json({message: 'error al calcular promedio de caps de series favoritas: ', error: error.message})
+    }
+}
+
+export {getAllSeries, obtenerSeriesPorIds, getSeriesByNombre, getSeriesByMinCap, getSeriesByMaxCap, saveSerie, updateSerie, deleteSerie, promedioCapsFavoritos}
