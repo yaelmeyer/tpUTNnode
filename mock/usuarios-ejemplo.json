@@ -1,0 +1,23 @@
+[
+    {
+        "nombre": "Juan Pérez",
+        "email": "juan@example.com",
+        "password": "$2a$10$IZlj5beIUMPGu0mWXpFs1udbQ3v1TqPV/ot1WB3vzjevXnd75wpKm",
+        "favoritos": [],
+        "tipo": "usuario"
+    },
+    {
+        "nombre": "Ana López",
+        "email": "ana@example.com",
+        "password": "$2a$10$IZlj5beIUMPGu0mWXpFs1udbQ3v1TqPV/ot1WB3vzjevXnd75wpKm",
+        "favoritos": ["6780928198c05b5c253dd0be"],
+        "tipo": "usuario"
+    },
+    {
+        "nombre": "Carlos Admin",
+        "email": "admin@example.com",
+        "password": "$2a$10$IZlj5beIUMPGu0mWXpFs1udbQ3v1TqPV/ot1WB3vzjevXnd75wpKm",
+        "favoritos": [],
+        "tipo": "administrador"
+    }
+]
